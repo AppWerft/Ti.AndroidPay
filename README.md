@@ -109,9 +109,11 @@ let tax = AP.createLineItem({
 ```javascript
 let cart = AP.createCart({
        "CurrencyCode" : "EUR",
-       "TotalPrice" : 104.22,
-       "LineItems" : [product,shipping,tax]
-})
+       "TotalPrice" : 104.22
+});
+cart.addLineItem(product);
+cart.addLineItem(tax);
+cart.addLineItem(shipping);
 ```
 
 ## Create Wallet

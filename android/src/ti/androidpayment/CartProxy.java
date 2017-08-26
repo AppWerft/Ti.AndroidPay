@@ -9,6 +9,8 @@ package ti.androidpayment;
  *
  */
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
 
 import org.appcelerator.kroll.KrollDict;
 import org.appcelerator.kroll.KrollProxy;
@@ -22,85 +24,56 @@ import org.appcelerator.titanium.view.TiCompositeLayout;
 import org.appcelerator.titanium.view.TiCompositeLayout.LayoutArrangement;
 import org.appcelerator.titanium.view.TiUIView;
 
+import com.google.android.gms.wallet.Cart;
+import com.google.android.gms.wallet.Cart.Builder;
+import com.google.android.gms.wallet.FullWalletRequest;
+import com.google.android.gms.wallet.LineItem;
+import com.google.android.gms.wallet.MaskedWalletRequest;
+import com.google.android.gms.wallet.NotifyTransactionStatusRequest;
+import com.google.android.gms.wallet.PaymentMethodTokenizationParameters;
+
 import android.app.Activity;
 
-
 // This proxy can be created by calling Androidpayment.createExample({message: "hello world"})
-@Kroll.proxy(creatableInModule=AndroidpaymentModule.class)
-public class CartProxy extends TiViewProxy
-{
+@Kroll.proxy(creatableInModule = AndroidpaymentModule.class)
+public class CartProxy extends KrollProxy {
 	// Standard Debugging variables
-	private static final String LCAT = "ExampleProxy";
+	private static final String LCAT = AndroidpaymentModule.LCAT;
 	private static final boolean DBG = TiConfig.LOGD;
-
-	private class ExampleView extends TiUIView
-	{
-		public ExampleView(TiViewProxy proxy) {
-			super(proxy);
-			LayoutArrangement arrangement = LayoutArrangement.DEFAULT;
-
-			if (proxy.hasProperty(TiC.PROPERTY_LAYOUT)) {
-				String layoutProperty = TiConvert.toString(proxy.getProperty(TiC.PROPERTY_LAYOUT));
-				if (layoutProperty.equals(TiC.LAYOUT_HORIZONTAL)) {
-					arrangement = LayoutArrangement.HORIZONTAL;
-				} else if (layoutProperty.equals(TiC.LAYOUT_VERTICAL)) {
-					arrangement = LayoutArrangement.VERTICAL;
-				}
-			}
-			setNativeView(new TiCompositeLayout(proxy.getActivity(), arrangement));
-		}
-
-		@Override
-		public void processProperties(KrollDict d)
-		{
-			super.processProperties(d);
-		}
-	}
-
+	private String currencyCode = "USD";
+	private BigDecimal totalPrice = BigDecimal.ZERO;
+	private ArrayList<LineItem> items;
+	private Cart cart;
 
 	// Constructor
-	public CartProxy()
-	{
+	public CartProxy() {
 		super();
 	}
 
 	@Override
-	public TiUIView createView(Activity activity)
-	{
-		TiUIView view = new ExampleView(this);
-		view.getLayoutParams().autoFillsHeight = true;
-		view.getLayoutParams().autoFillsWidth = true;
-		return view;
-	}
-
-	// Handle creation options
-	@Override
-	public void handleCreationDict(KrollDict options)
-	{
-		super.handleCreationDict(options);
-
-		if (options.containsKey("message")) {
-			Log.d(LCAT, "example created with message: " + options.get("message"));
+	public void handleCreationDict(KrollDict opts) {
+		super.handleCreationDict(opts);
+		if (opts.containsKeyAndNotNull("CurrencyCode")) {
+			currencyCode = opts.getString("CurrencyCode");
+		}
+		if (opts.containsKeyAndNotNull("TotalPrice")) {
+			totalPrice = new BigDecimal(opts.getDouble("TotalPrice"));
 		}
 	}
 
 	// Methods
 	@Kroll.method
-	public void printMessage(String message)
-	{
-		Log.d(LCAT, "printing message: " + message);
+	public void addLineItem(LineItemProxy proxy) {
+		items.add(proxy.getItem());
 	}
-
-
-	@Kroll.getProperty @Kroll.method
-	public String getMessage()
-	{
-        return "Hello World from my module";
-	}
-
-	@Kroll.setProperty @Kroll.method
-	public void setMessage(String message)
-	{
-	    Log.d(LCAT, "Tried setting module message to: " + message);
+	
+	public Cart getCart() {
+		 Builder builder = Cart.newBuilder()
+	    .setCurrencyCode(currencyCode)
+	    .setTotalPrice(String.valueOf(totalPrice));
+	    for (LineItem item : items) {
+	    	builder.addLineItem(item);
+	    }
+	    return builder.build();
 	}
 }

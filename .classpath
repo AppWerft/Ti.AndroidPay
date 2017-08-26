@@ -12,5 +12,12 @@
 			<attribute name="optional" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="/Users/fuerst/Documents/MLearning/Ti.AndroidPayment/android/lib/play-services-auth-11.0.2.jar"/>
+	<classpathentry kind="lib" path="/Users/fuerst/Documents/MLearning/Ti.AndroidPayment/android/lib/play-services-base-11.0.2.jar"/>
+	<classpathentry kind="lib" path="/Users/fuerst/Documents/MLearning/Ti.AndroidPayment/android/lib/play-services-basement-11.0.2.jar"/>
+	<classpathentry kind="lib" path="/Users/fuerst/Documents/MLearning/Ti.AndroidPayment/android/lib/play-services-gcm-11.0.2.jar"/>
+	<classpathentry kind="lib" path="/Users/fuerst/Documents/MLearning/Ti.AndroidPayment/android/lib/play-services-iid-11.0.2.jar"/>
+	<classpathentry kind="lib" path="/Users/fuerst/Documents/MLearning/Ti.AndroidPayment/android/lib/play-services-tasks-11.0.2.jar"/>
+	<classpathentry kind="lib" path="/Users/fuerst/Documents/MLearning/Ti.AndroidPayment/android/lib/play-services-wallet-11.0.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

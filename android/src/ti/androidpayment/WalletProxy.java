@@ -1,5 +1,5 @@
 package ti.androidpayment;
 
-public class Wallet {
+public class WalletProxy {
 
 }

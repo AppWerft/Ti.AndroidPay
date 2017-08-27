@@ -1,4 +1,4 @@
-# Ti.AndroidPay
+# Ti.AndroidPayment
 
 This a Axway Titanium module for Android payment
 
@@ -6,7 +6,7 @@ This a Axway Titanium module for Android payment
 
 First on CLI
 ```
-gittio install ti.androidpay
+gittio install ti.androidpayment
 ```
 
 Then you have to add the module to your project inside `tiapp.xml`
@@ -116,7 +116,7 @@ cart.addLineItem(tax);
 cart.addLineItem(shipping);
 ```
 
-## Create Wallet
+### Create Wallet
 
 The following example creates the Masked Wallet request using the builder pattern:
 

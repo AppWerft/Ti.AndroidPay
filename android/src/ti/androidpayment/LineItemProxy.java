@@ -33,7 +33,7 @@ import com.google.android.gms.wallet.PaymentMethodTokenizationParameters;
 
 // This proxy can be created by calling Androidpayment.createExample({message: "hello world"})
 @Kroll.proxy(creatableInModule = AndroidpaymentModule.class)
-public class LineItemProxy extends TiViewProxy {
+public class LineItemProxy extends KrollProxy {
 	// Standard Debugging variables
 	private static final String LCAT = "ExampleProxy";
 	private static final boolean DBG = TiConfig.LOGD;

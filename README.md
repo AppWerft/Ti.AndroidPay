@@ -1,4 +1,4 @@
-# Ti.AndroidPayment
+# Ti.Android
 
 This a Axway Titanium module for Android payment
 
@@ -6,7 +6,7 @@ This a Axway Titanium module for Android payment
 
 First on CLI
 ```
-gittio install ti.androidpayment
+gittio install ti.android
 ```
 
 Then you have to add the module to your project inside `tiapp.xml`

@@ -1,0 +1,22 @@
+%define lookup-function-name lookupGeneratedInit
+%define class-name AndroidpaymentBindings
+%{
+
+#include <string.h>
+#include <v8.h>
+#include <KrollBindings.h>
+
+#include "ti.androidpay.CartProxy.h"
+#include "ti.androidpay.LineItemProxy.h"
+#include "ti.androidpay.AndroidpaymentModule.h"
+#include "ti.androidpay.PaymentMethodTokenizationParametersProxy.h"
+
+
+%}
+struct titanium::bindings::BindEntry;
+%%
+ti.androidpay.PaymentMethodTokenizationParametersProxy,::ti::androidpay::androidpayment::PaymentMethodTokenizationParametersProxy::bindProxy,::ti::androidpay::androidpayment::PaymentMethodTokenizationParametersProxy::dispose
+ti.androidpay.AndroidpaymentModule,::ti::androidpay::AndroidpaymentModule::bindProxy,::ti::androidpay::AndroidpaymentModule::dispose
+ti.androidpay.LineItemProxy,::ti::androidpay::androidpayment::LineItemProxy::bindProxy,::ti::androidpay::androidpayment::LineItemProxy::dispose
+ti.androidpay.CartProxy,::ti::androidpay::androidpayment::CartProxy::bindProxy,::ti::androidpay::androidpayment::CartProxy::dispose
+%%

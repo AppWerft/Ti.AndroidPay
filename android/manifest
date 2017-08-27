@@ -5,14 +5,14 @@
 version: 1.0.0
 apiversion: 3
 architectures: armeabi-v7a x86
-description: androidpayment
+description: Android payment for Axway Titanium
 author: Rainer Knöterich
 license: Specify your license
 copyright: Copyright (c) 2017 by 
 
 # these should not be edited
 name: androidpayment
-moduleid: ti.androidpayment
+moduleid: ti.androidpay
 guid: 9cb26552-fa18-4cf4-843f-3eb193da4553
 platform: android
 minsdk: 6.1.1.GA

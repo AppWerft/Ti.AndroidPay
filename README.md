@@ -1,5 +1,5 @@
 # Ti.Android
-<img src="https://www.clearviewfcu.org/home/fiFiles/static/images/FAQs_Android_PayLogo.png" width=200/>
+<img src="https://www.clearviewfcu.org/home/fiFiles/static/images/FAQs_Android_PayLogo.png" width=180/>
 This a Axway Titanium module for Android payment
 
 ## Installation

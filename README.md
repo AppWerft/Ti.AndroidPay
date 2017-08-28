@@ -1,6 +1,7 @@
-# Ti.Android
+# Ti.AndroidPay
 <img src="https://www.clearviewfcu.org/home/fiFiles/static/images/FAQs_Android_PayLogo.png" width=180/>
-This a Axway Titanium module for Android payment [Documentation](https://developers.google.com/android-pay/tutorial) . 
+
+This a Axway Titanium module for Android payment [Documentation](https://developers.google.com/android-pay/tutorial). 
 
 ## Installation
 
